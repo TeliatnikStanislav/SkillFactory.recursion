@@ -21,13 +21,17 @@ namespace recursion
             Console.ReadKey();
         }
 
-        static void Echo(string phrase, int deep)
+        static void Echo(string saidworld, int deep)
         {
-            Console.WriteLine(phrase);
-
+            var modif = saidworld;
+            if (modif.Length > 2)
+            {
+                modif = modif.Remove(0, 2);
+            }
+            Console.WriteLine("..." + modif);
             if (deep > 1)
             {
-                Echo(phrase, deep - 1);
+                Echo(modif, deep - 1);
             }
         }
     }
